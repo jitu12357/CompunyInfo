@@ -1,0 +1,60 @@
+<mat-card>
+    <mat-card-title>Assign Project to Employees</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <div class="bootstrap-wrapper">
+            <div class="container margint">
+                <h1 class="text-center">Assign Project</h1>
+            </div>
+            
+            <div class="container margint text-center">
+                <form (ngSubmit)="onSubmit()" autocomplete="off">
+                <mat-form-field class="full-width ml">
+                    <mat-label>Project_ID</mat-label>
+                    <input type="text" matInput id="pName" name="pName" [(ngModel)]="pID" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Employee_ID</mat-label>
+                    <input type="text" matInput id="mID" name="mID" [(ngModel)]="eID" required>
+                </mat-form-field>
+
+                <div class="container margint text-center">
+                    <button mat-raised-button color="primary" type="reset" (click)="onSubmit()">Add</button>
+                    <button mat-raised-button color="accent" type="reset" >clear</button>
+                    <button mat-raised-button color="primary" type="reset" (click)="viewProject()">view</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<mat-card #table1>
+    <mat-card-title>Assigned Project Table</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Project_ID</th>
+                    <th scope="col">Employee_Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mapp of mapps">
+                    <td>{{mapp.id}}</td>
+                    <td>{{mapp.employID}}</td>
+                    <td>{{mapp.projectID}}</td>
+                    <td>
+                        <button mat-raised-button color="accent" (click)="onDelete(mapp.id)">Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-actions>
+</mat-card>

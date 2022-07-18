@@ -1,0 +1,78 @@
+<mat-card>
+    <mat-card-title>Project Form</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <div class="bootstrap-wrapper">
+            <div class="container margint">
+                <h1 class="text-center">Fill Project Details</h1>
+            </div>
+            
+            <div class="container margint text-center">
+                <form (ngSubmit)="onSubmit()" autocomplete="off">
+                <mat-form-field class="full-width ml">
+                    <mat-label>Project_ID</mat-label>
+                    <input type="text" matInput id="pID" name="pID" [(ngModel)]="pID" readonly="isValid" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Project_Name</mat-label>
+                    <input type="text" matInput id="pName" name="pName" [(ngModel)]="pName" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Manager_ID</mat-label>
+                    <input type="text" matInput id="mID" name="mID" [(ngModel)]="mID" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>No OF Employees</mat-label>
+                    <input type="number" matInput id="empCount" name="empCount" [(ngModel)]="empCount1" value="1" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Technologies Used</mat-label>
+                    <input type="text" matInput id="tUse" name="tUse" [(ngModel)]="tUse" required>
+                </mat-form-field>
+
+                <div class="container margint text-center">
+                    <button mat-raised-button color="primary" type="reset" (click)="onSubmit()">Add</button>
+                    <button mat-raised-button color="accent" type="reset" (click)="viewProject()">view</button>
+                    <button mat-raised-button color="primary" type="reset" (click)="onUpdate()" >update</button>
+                    <button mat-raised-button color="accent" type="reset" >clear</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<mat-card #table1>
+    <mat-card-title>Project Table</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Project_ID</th>
+                    <th scope="col">Project_Name</th>
+                    <th scope="col">Manager_ID</th>
+                    <th scope="col">No OF Employees</th>
+                    <th scope="col">Technologies Used</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects">
+                    <td>{{project.projectID}}</td>
+                    <td>{{project.projectName}}</td>
+                    <td>{{project.managerID}}</td>
+                    <td>{{project.noOfEmploy}}</td>
+                    <td>{{project.technology}}</td>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="onEdit(project)">Edit</button>
+                        <button mat-raised-button color="accent" (click)="onDelete(project.projectID)">Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-actions>
+</mat-card>

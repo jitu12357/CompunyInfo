@@ -1,0 +1,90 @@
+<mat-card>
+    <mat-card-title>Employ Form</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <div class="bootstrap-wrapper">
+            <div class="container margint">
+                <h1 class="text-center">Welcome to Employ Form</h1>
+            </div>
+            
+            <div class="container margint text-center">
+                <form (ngSubmit)="onSubmit()" autocomplete="off">
+                <mat-form-field class="full-width ml">
+                    <mat-label>Employ_ID</mat-label>
+                    <input type="text" matInput id="empID" name="empID" [(ngModel)]="empID" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Employ_Name</mat-label>
+                    <input type="text" matInput id="empName" name="empName" [(ngModel)]="empName" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Age</mat-label>
+                    <input type="number" matInput id="age" name="age" [(ngModel)]="age" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Gender</mat-label>
+                    <input type="text" matInput id="gender" name="gender" [(ngModel)]="gender" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Industry Experience</mat-label>
+                    <input type="text" matInput id="indexp" name="indexp" [(ngModel)]="indexp" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Salary</mat-label>
+                    <input type="number" matInput id="salary" name="salary" [(ngModel)]="salary" required>
+                </mat-form-field>
+                <mat-form-field class="full-width ml">
+                    <mat-label>Designation</mat-label>
+                    <input type="text" matInput id="design" name="design" [(ngModel)]="design" required>
+                </mat-form-field>
+
+                <div class="container margint text-center">
+                    <button mat-raised-button color="primary" type="reset" (click)="onSubmit()">Add</button>
+                    <button mat-raised-button color="accent" type="reset" (click)="viewEmploy()">view</button>
+                    <button mat-raised-button color="primary" type="reset" (click)="onUpdate()" >update</button>
+                    <button mat-raised-button color="accent" type="reset" >clear</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+
+    </mat-card-actions>
+</mat-card>
+
+<mat-card #table1>
+    <mat-card-title>Employ Table</mat-card-title>
+    <mat-card-subtitle>Start</mat-card-subtitle>
+    <mat-card-actions>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Employ_ID</th>
+                    <th scope="col">Employ_Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Experience</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employ of employs">
+                    <td>{{employ.employID}}</td>
+                    <td>{{employ.employName}}</td>
+                    <td>{{employ.age}}</td>
+                    <td>{{employ.gender}}</td>
+                    <td>{{employ.indExp}}</td>
+                    <td>{{employ.salary}}</td>
+                    <td>{{employ.designation}}</td>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="onEdit(employ)">Edit</button>
+                        <button mat-raised-button color="accent" (click)="onDelete(employ.employID)">Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-actions>
+</mat-card>

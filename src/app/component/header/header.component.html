@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <span style='padding-left:20px;'>
+        <a mat-icon-button routerLink="/">Home</a>
+    </span>
+    <span style='padding-left:20px;'>
+        <a mat-icon-button routerLink="/employ">Employ_Info</a>
+    </span>
+    <span style='padding-left:60px;'>
+        <a mat-icon-button routerLink="/project">Project_Info</a>
+    </span>
+    <span style='padding-left:60px;'>
+        <a mat-icon-button routerLink="/mapping">Assigned_Projects</a>
+    </span>
+    <span class="example-spacer"></span>
+    <span style='padding-right:10px;'>
+        <a mat-icon-button (ngsubmit)="logout()">Logout</a>
+    </span>
+</mat-toolbar>
